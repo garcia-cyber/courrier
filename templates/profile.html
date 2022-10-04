@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+	<meta property="og:title" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+	<meta property="og:description" content="Fillow : Fillow Saas Admin  Bootstrap 5 Template">
+	<meta property="og:image" content="https://fillow.dexignlab.com/xhtml/social-image.png">
+	<meta name="format-detection" content="telephone=no">
+	
+	<!-- PAGE TITLE HERE -->
+	<title>{{'profile |'.title()}}</title>
+	
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/png" href="{{url_for('static',filename='images/big-wind.png')}}">
+    <!-- Custom Stylesheet -->
+	<link href="{{url_for('static',filename='vendor/jquery-nice-select/css/nice-select.css')}}" rel="stylesheet">
+	<!-- Pick date -->
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+   <div id="preloader" style="display:none;">
+		<div class="lds-ripple">
+			<div></div>
+			<div></div>
+		</div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+		<div class="nav-header">
+            <a href="admin.php" class="brand-logo">
+                <svg class="logo-abbr" width="55" height="55" viewbox="0 0 55 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <img src="{{url_for('static',filename='images/index.jpeg')}}" style="width:50px;height: 50px;border-radius: 100%;">
+                    <!-- JE VIENS POUR TE TOUCHE -->
+                    <defs>
+                    </defs>
+                </svg>
+                <div class="brand-title">
+                    <!-- <h2 class="">{{session['nom_agent']}}</h2> -->
+                    
+                </div>
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header border-bottom">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                              <small>{{'profile'.title()}}</small>
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                          
+                                
+                           
+                             
+                            
+                            
+                            <li class="nav-item dropdown  header-profile">
+                                <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown">
+                                    <img src="{{url_for('static',filename='images/index.jpeg')}}" width="56" alt="">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end">
+                                   
+
+                                    <a href="/deco" class="dropdown-item ai-icon">
+                                        <svg id="icon-logout" xmlns="http://www.w3.org/2000/svg" class="text-danger" width="18" height="18" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                        <span class="ms-2">Se déconnecter </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="dlabnav">
+            <div class="dlabnav-scroll">
+               
+                   
+                {% if session['fonction_agent'] == 1%}
+                        {% include '_nav/menu_admin.html'%}
+                {% elif session['fonction_agent'] == 2%}
+                        {% include '_nav/menu_reception.html'%}  
+                {% elif session['fonction_agent'] == 3%}
+                        {% include '_nav/menu_secretariat.html'%}  
+                {% elif session['fonction_agent'] == 4%}
+                    {% include '_nav/menu_dircab.html'%}  
+                {% elif session['fonction_agent'] == 5%}
+                    {% include '_nav/menu_dircaba.html'%} 
+                {% elif session['fonction_agent'] == 6%}
+                    {% include '_nav/menu_dircaba.html'%}   
+                 {% elif session['fonction_agent'] == 7%}
+                    {% include '_nav/menu_dircaba.html'%}  
+                  {% elif session['fonction_agent'] == 8%}
+                    {% include '_nav/menu_dircaba.html'%}                                     
+                {% endif %}
+           
+                
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+				
+                <!-- row -->
+                <div class="row">
+                    
+					
+					<div class="col-xl-12 col-lg-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="page-title">Profil membre</h3>
+                                <div class="btn-group">
+                               
+                                <!-- <button class="btn btn-success">Modifier</button>
+                                <a class="btn btn-info" href = '/photo/{{session['id_agent']}}'>Change Photo</a>
+                                <a class="btn btn-danger" href = '/update_password/{{session['id_agent']}}'>Modifier mot de passe</a>
+
+                               
+                                
+                               
+                                <button class="btn btn-danger">Supprimer</button> -->
+                            </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-validation">
+                                    <form class="needs-validation" novalidate="">
+                                        <div class="row">
+                                            <div class="col-xl-6">
+                                                
+                                               
+                                                <img src="{{url_for('static',filename='images/index.jpeg')}}" width="400" height="100" class="img-fluid" style="border-radius: 10px;">
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <h3 class="page-title">Informations personnelles</h3>
+                                                <br clear="both">
+
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label" for="validationCustom06">Nom et prénom
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{session['nom_agent']}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label" for="validationCustom07">Email
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{session['email_agent']}}</div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label" for="validationCustom08">Telephone
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{session['phone_agent']}}</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 row">
+                                                    <label class="col-lg-4 col-form-label" for="validationCustom08">Fonction 
+                                                        <span class="text-danger">*</span>
+                                                    </label>
+                                                    <div class="col-lg-6">
+                                                        {%if session['fonction_agent'] == 1 %}
+                                                            <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'admin'.title()}}</div>
+                                                        {% elif session['fonction_agent'] == 2 %}  
+                                                            <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'receptionniste'.title()}}</div>     
+                                                        {% elif session['fonction_agent'] == 3 %}  
+                                                            <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'secretariat'.title()}}</di>
+                                                        {% elif session['fonction_agent'] == 4 %}  
+                                                                <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'dircab'.title()}}</di>    
+                                                        {% elif session['fonction_agent'] == 5 %}  
+                                                                <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'dircaba'.title()}}</di>
+                                                        {% elif session['fonction_agent'] == 6 %}  
+                                                                <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'ministre'.title()}}</di>  
+                                                        {% elif session['fonction_agent'] == 8 %}  
+                                                                    <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'aider dircab'.title()}}</di>                      
+                                                        {% else %}       
+                                                            <div class="form-control" required="" style="padding-top: 10px;position: relative;">{{'conseiller'.title()}}</di>                      
+
+                                                        {%endif%}
+                                                    </div>
+                                                </div> 
+
+                                                <br clear="both">
+
+                
+                                                
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					
+					
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">Stechene</a> 2022</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button start
+        ***********************************-->
+
+        <!--**********************************
+           Support ticket button end
+        ***********************************-->
+
+        
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="{{url_for('static',filename='vendor/global/global.min.js')}}"></script>
+	<script src="{{url_for('static',filename='vendor/jquery-nice-select/js/jquery.nice-select.min.js')}}"></script>
+	
+    <script src="{{url_for('static',filename='js/custom.min.js')}}"></script>
+	<script src="{{url_for('static',filename='js/dlabnav-init.js')}}"></script>
+	<script src="{{url_for('static',filename='js/demo.js')}}"></script>
+    <script src="{{url_for('static',filename='js/styleSwitcher.js')}}"></script>
+
+   
+
+
+
+
+
+</body>
+</html>
